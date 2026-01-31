@@ -8,8 +8,10 @@
 }
 
 :root {
-  background-color: #0a0612;
-  color: white;
+  --primary: #7f0df2;
+  --accent-blue: #00d4ff;
+  --neon-green: #00ff41;
+  --bg-dark: #0a0a0a;
 }
 
 .glass-card {
