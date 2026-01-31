@@ -2,11 +2,9 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-// Asegúrate de que esta ruta sea la correcta según tu estructura de carpetas
 import { BubbleBackground } from './components/BubbleBackground';
 
 export default function Home() {
-  // Función para scroll suave
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -16,12 +14,10 @@ export default function Home() {
 
   return (
     <div className='bg-[#020202] min-h-screen text-white font-sans selection:bg-neon-green/30'>
-      {/* EL FONDO ENVUELVE TODO */}
       <BubbleBackground interactive={true}>
-        {/* HEADER / NAVBAR */}
+        {/* NAVBAR */}
         <nav className='fixed top-0 w-full z-50 bg-[#050505]/60 backdrop-blur-xl border-b border-white/5'>
           <div className='max-w-7xl mx-auto px-6 h-20 flex justify-between items-center'>
-            {/* LOGO Y NOMBRE CORREGIDO (Sin solapamiento) */}
             <div
               className='relative flex items-center group cursor-pointer z-50'
               onClick={() => scrollToSection('inicio')}
@@ -41,7 +37,6 @@ export default function Home() {
                 />
               </motion.div>
 
-              {/* ml-14 asegura que el texto empiece DESPUÉS del logo */}
               <motion.div
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
@@ -55,7 +50,6 @@ export default function Home() {
               </motion.div>
             </div>
 
-            {/* NAV LINKS */}
             <div className='hidden md:flex items-center gap-6'>
               {[
                 { name: 'Inicio', id: 'inicio' },
@@ -89,7 +83,7 @@ export default function Home() {
         </nav>
 
         <main className='relative z-10'>
-          {/* HERO SECTION - ID: INICIO */}
+          {/* HERO SECTION */}
           <section
             id='inicio'
             className='relative pt-48 pb-32 px-6 max-w-7xl mx-auto min-h-screen flex flex-col items-center justify-center text-center'
@@ -132,7 +126,6 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* CARD GLASS VISUAL (CODE EDITOR STYLE) */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -164,15 +157,95 @@ export default function Home() {
             </motion.div>
           </section>
 
+          {/* SECCIÓN NOSOTROS */}
+          <section
+            id='nosotros'
+            className='py-32 px-6 scroll-mt-20 max-w-7xl mx-auto'
+          >
+            <div className='grid lg:grid-cols-2 gap-16 items-center'>
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                className='space-y-8'
+              >
+                <div className='space-y-4'>
+                  <h2 className='text-accent-blue font-mono text-sm tracking-[0.4em] uppercase'>
+                    // Sobre Nosotros
+                  </h2>
+                  <h3 className='text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none'>
+                    Ingeniería con <br />
+                    <span className='italic text-white/40'>
+                      Instinto Digital
+                    </span>
+                  </h3>
+                </div>
+
+                <div className='space-y-6 text-gray-400 text-lg leading-relaxed'>
+                  <p>
+                    En{' '}
+                    <span className='text-white font-semibold'>
+                      CunaguarosDev
+                    </span>
+                    , nacimos de la necesidad de elevar el estándar del
+                    desarrollo de software. Somos una unidad de ingeniería
+                    dedicada a construir sistemas que no solo funcionan, sino
+                    que escalan.
+                  </p>
+                  <p>
+                    Nuestra filosofía se basa en tres pilares:{' '}
+                    <span className='text-neon-green'>Precisión Técnica</span>,{' '}
+                    <span className='text-neon-green'>Arquitectura Limpia</span>{' '}
+                    y{' '}
+                    <span className='text-neon-green'>Visión de Producto</span>.
+                  </p>
+                </div>
+
+                <div className='grid grid-cols-2 gap-8 pt-8 border-t border-white/5'>
+                  <div>
+                    <div className='text-3xl font-black text-white'>100%</div>
+                    <div className='text-[10px] uppercase tracking-widest text-gray-500'>
+                      Código Nativo
+                    </div>
+                  </div>
+                  <div>
+                    <div className='text-3xl font-black text-white'>24/7</div>
+                    <div className='text-[10px] uppercase tracking-widest text-gray-500'>
+                      Arquitectura Cloud
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1 }}
+                className='relative'
+              >
+                <div className='relative aspect-square rounded-3xl border border-white/10 bg-linear-to-br from-white/5 to-transparent backdrop-blur-sm overflow-hidden flex items-center justify-center group'>
+                  <div className='absolute inset-0 bg-[url("https://www.transparenttextures.com/patterns/carbon-fibre.png")] opacity-20' />
+                  <div className='z-10 text-center p-8'>
+                    <div className='text-8xl mb-4'>🐆</div>
+                    <div className='text-xs font-mono text-neon-green/60 animate-pulse'>
+                      &lt;System_Analysis_Active /&gt;
+                    </div>
+                  </div>
+                  <div className='absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-neon-green/30' />
+                  <div className='absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-neon-green/30' />
+                </div>
+              </motion.div>
+            </div>
+          </section>
+
           {/* ARSENAL TECNOLÓGICO */}
-          <section id='nosotros' className='my-40 px-6 scroll-mt-20'>
+          <section className='py-32 px-6'>
             <div className='text-center mb-16'>
               <h2 className='text-3xl md:text-5xl font-bold bg-linear-to-b from-white to-gray-500 bg-clip-text text-transparent mb-4 uppercase tracking-tighter'>
                 Arsenal Tecnológico
               </h2>
               <p className='text-gray-400 max-w-3xl mx-auto text-sm md:text-base'>
-                Stack de ingeniería seleccionado para máxima escalabilidad y
-                automatización.
+                Stack de ingeniería seleccionado para máxima escalabilidad.
               </p>
             </div>
 
@@ -213,17 +286,16 @@ export default function Home() {
           {/* PORTFOLIO / SOLUCIONES */}
           <section
             id='portfolio'
-            className='mb-40 scroll-mt-20 px-6 max-w-7xl mx-auto'
+            className='py-32 scroll-mt-20 px-6 max-w-7xl mx-auto'
           >
             <div className='flex flex-col md:flex-row justify-between items-end mb-16 gap-6'>
               <div className='max-w-2xl'>
                 <h2 className='text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none'>
-                  Soluciones de <br />
+                  Soluciones de <br />{' '}
                   <span className='text-accent-blue italic'>Ingeniería</span>
                 </h2>
                 <p className='text-gray-500 mt-6 text-lg'>
-                  Sistemas escalables, seguros y automatizados diseñados por
-                  ingenieros.
+                  Sistemas escalables, seguros y automatizados.
                 </p>
               </div>
             </div>
@@ -232,19 +304,19 @@ export default function Home() {
               {[
                 {
                   title: 'Desarrollo Fullstack',
-                  desc: 'Aplicaciones de alto rendimiento con Next.js y React. Interfaces líquidas que priorizan la experiencia del usuario.',
+                  desc: 'Aplicaciones de alto rendimiento con Next.js.',
                   stack: 'Next.js • TypeScript • Tailwind',
                   icon: '💻',
                 },
                 {
                   title: 'Backend & Arquitectura',
-                  desc: 'Sistemas robustos con Python y Node.js. Diseño de bases de datos optimizadas para manejar grandes volúmenes de datos.',
+                  desc: 'Sistemas robustos con Python y Node.js.',
                   stack: 'Python • PostgreSQL • APIs',
                   icon: '⚙️',
                 },
                 {
                   title: 'IA & Automatización',
-                  desc: 'Automatización de procesos empresariales usando n8n y agentes de IA. Integramos modelos de lenguaje para optimizar flujos.',
+                  desc: 'Automatización con n8n y agentes de IA.',
                   stack: 'n8n • Llama 3 • LangChain',
                   icon: '🤖',
                 },
@@ -271,7 +343,7 @@ export default function Home() {
             </div>
           </section>
 
-          {/* ESPACIOS PARA EQUIPO Y CONTACTO */}
+          {/* EQUIPO Y CONTACTO */}
           <section
             id='equipo'
             className='min-h-[40vh] py-32 scroll-mt-20 flex items-center justify-center'
