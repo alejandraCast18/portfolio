@@ -105,8 +105,6 @@ export default function Home() {
           </div>
         </div>
       </main>
-
-      {/* FOOTER CUNAGUAROS DEV */}
       <footer className='border-t border-white/5 bg-bg-dark pt-20 pb-10 mt-20'>
         <div className='max-w-7xl mx-auto px-6'>
           <div className='flex flex-col md:flex-row justify-between items-center gap-10'>
