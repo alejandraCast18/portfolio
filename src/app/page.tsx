@@ -29,8 +29,12 @@ export default function Home() {
     }
   }
 
+  // Clase reutilizable para el efecto de los títulos
+  const ghostTextClass =
+    'text-zinc-800 transition-all duration-700 italic group-hover:text-accent-blue group-hover:drop-shadow-[0_0_15px_rgba(0,242,255,0.5)]'
+
   return (
-    <div className='bg-[#020202] min-h-screen text-white font-sans selection:bg-neon-green/30'>
+    <div className='bg-[#020202] min-h-screen text-white font-sans selection:bg-accent-blue/30'>
       <BubbleBackground interactive={true}>
         <nav className='fixed top-0 w-full z-50 bg-[#050505]/60 backdrop-blur-xl border-b border-white/5'>
           <div className='max-w-7xl mx-auto px-6 h-20 flex justify-between items-center'>
@@ -42,7 +46,7 @@ export default function Home() {
                 initial={{ rotate: 180, scale: 0 }}
                 animate={{ rotate: 0, scale: 1 }}
                 transition={{ duration: 0.8, ease: 'backOut' }}
-                className='relative w-11 h-11 rounded-full border border-neon-green/50 overflow-hidden bg-[#050505] z-30 group-hover:border-neon-green transition-colors shadow-[0_0_15px_rgba(0,255,102,0.2)] shrink-0'
+                className='relative w-11 h-11 rounded-full border border-neon-green/50 overflow-hidden bg-[#050505] z-30 group-hover:border-accent-blue transition-colors shadow-[0_0_15px_rgba(0,255,102,0.2)] shrink-0'
               >
                 <Image
                   src='/logo.jpg'
@@ -59,7 +63,7 @@ export default function Home() {
                 className='ml-3 text-lg font-black tracking-tighter uppercase whitespace-nowrap z-20'
               >
                 Cunaguaros <span className='text-accent-blue italic'>Dev</span>
-                <span className='text-white/40 text-[10px] lowercase ml-1'>
+                <span className='text-gold/40 text-[10px] lowercase ml-1'>
                   .web
                 </span>
               </motion.div>
@@ -71,7 +75,7 @@ export default function Home() {
                   <button
                     key={name}
                     onClick={() => scrollToSection(name.toLowerCase())}
-                    className='text-[10px] font-bold text-gray-400 hover:text-white uppercase tracking-widest transition-colors'
+                    className='text-[10px] font-bold text-slate-500 hover:text-accent-blue uppercase tracking-widest transition-all'
                   >
                     {name}
                   </button>
@@ -91,34 +95,32 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
+              className='group'
             >
-              <div className='inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neon-green/30 bg-neon-green/5 text-neon-green text-[10px] font-bold uppercase tracking-[0.2em] mb-8'>
+              <div className='inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent-blue/30 bg-accent-blue/5 text-accent-blue text-[10px] font-bold uppercase tracking-[0.2em] mb-8 shadow-[0_0_15px_rgba(0,242,255,0.1)]'>
                 <span className='relative flex h-2 w-2'>
-                  <span className='animate-ping absolute h-full w-full rounded-full bg-neon-green opacity-75'></span>
-                  <span className='h-2 w-2 rounded-full bg-neon-green'></span>
+                  <span className='animate-ping absolute h-full w-full rounded-full bg-accent-blue opacity-75'></span>
+                  <span className='h-2 w-2 rounded-full bg-accent-blue'></span>
                 </span>
                 Sistemas de Alto Rendimiento
               </div>
               <h1 className='text-6xl md:text-[110px] font-black leading-[0.85] tracking-tighter mb-10 uppercase'>
-                Engineering <br />
-                <span className='bg-linear-to-r from-blue-400 via-accent-blue to-white bg-clip-text text-transparent italic'>
-                  The Future
-                </span>
+                Innovación <br />
+                <span className={ghostTextClass}>Digital</span>
               </h1>
-              <p className='text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-light'>
-                Arquitectura de software escalable y automatización inteligente
-                para empresas que no aceptan límites tecnológicos.
+              <p className='text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-light leading-relaxed'>
+                Arquitectura de software{' '}
+                <span className='text-slate-200'>escalable</span> y
+                automatización inteligente para empresas que no aceptan límites
+                tecnológicos.
               </p>
               <div className='flex flex-col md:flex-row gap-6 justify-center items-center'>
                 <button
                   onClick={() => scrollToSection('portfolio')}
-                  className='bg-neon-green text-black px-10 py-4 rounded-full text-xs font-black uppercase tracking-widest hover:scale-105 transition-transform shadow-[0_0_30px_rgba(0,255,102,0.3)]'
+                  className='bg-neon-green text-black px-10 py-4 rounded-full text-xs font-black uppercase tracking-widest hover:scale-105 transition-all shadow-[0_0_30px_rgba(0,255,102,0.3)] hover:shadow-neon-green/50'
                 >
                   Ver Portfolio
                 </button>
-                <div className='text-gray-500 font-mono text-[10px] uppercase tracking-widest'>
-                  Ready to deploy v2.0.26
-                </div>
               </div>
             </motion.div>
           </section>
@@ -133,7 +135,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
-                className='space-y-8'
+                className='space-y-8 group'
               >
                 <div className='space-y-4'>
                   <h2 className='text-accent-blue font-mono text-sm tracking-[0.4em] uppercase'>
@@ -141,29 +143,33 @@ export default function Home() {
                   </h2>
                   <h3 className='text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none'>
                     Ingeniería con <br />
-                    <span className='italic text-white/40'>
-                      Instinto Digital
-                    </span>
+                    <span className={ghostTextClass}>Instinto Digital</span>
                   </h3>
                 </div>
-                <p className='text-gray-400 text-lg leading-relaxed'>
+                <p className='text-slate-400 text-lg leading-relaxed'>
                   En{' '}
-                  <span className='text-white font-semibold'>
+                  <span className='text-accent-blue font-semibold'>
                     CunaguarosDev
                   </span>
                   , nacimos para elevar el estándar del desarrollo de software.
-                  Construimos sistemas robustos que escalan con tu visión.
+                  Construimos sistemas{' '}
+                  <span className='text-white'>robustos</span> que escalan con
+                  tu visión.
                 </p>
                 <div className='grid grid-cols-2 gap-8 pt-8 border-t border-white/5'>
-                  <div>
-                    <div className='text-3xl font-black text-white'>100%</div>
-                    <div className='text-[10px] uppercase tracking-widest text-gray-500'>
+                  <div className='group/stat'>
+                    <div className='text-3xl font-black text-white group-hover/stat:text-accent-blue transition-colors'>
+                      100%
+                    </div>
+                    <div className='text-[10px] uppercase tracking-widest text-slate-500'>
                       Código Nativo
                     </div>
                   </div>
-                  <div>
-                    <div className='text-3xl font-black text-white'>24/7</div>
-                    <div className='text-[10px] uppercase tracking-widest text-gray-500'>
+                  <div className='group/stat'>
+                    <div className='text-3xl font-black text-white group-hover/stat:text-accent-blue transition-colors'>
+                      24/7
+                    </div>
+                    <div className='text-[10px] uppercase tracking-widest text-slate-500'>
                       Arquitectura Cloud
                     </div>
                   </div>
@@ -176,8 +182,8 @@ export default function Home() {
                 transition={{ duration: 1 }}
                 className='relative'
               >
-                <div className='absolute w-64 h-64 bg-blue-600/10 rounded-full blur-[80px] -z-10 animate-pulse top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2' />
-                <div className='relative w-full max-w-lg mx-auto p-px rounded-2xl bg-linear-to-br from-white/20 to-transparent shadow-2xl overflow-hidden backdrop-blur-md'>
+                <div className='absolute w-64 h-64 bg-accent-blue/20 rounded-full blur-[80px] -z-10 animate-pulse top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2' />
+                <div className='relative w-full max-w-lg mx-auto p-px rounded-2xl bg-linear-to-br from-accent-blue/40 to-transparent shadow-2xl overflow-hidden backdrop-blur-md'>
                   <div className='bg-[#0a0a0a]/90 p-8 rounded-[15px] font-mono text-xs leading-relaxed'>
                     <div className='flex gap-2 mb-6'>
                       <div className='w-2.5 h-2.5 rounded-full bg-red-500/40' />
@@ -189,10 +195,12 @@ export default function Home() {
                       <span className='text-white'>CunaguarosDev</span> {'{'}
                       <br />
                       &nbsp;&nbsp;
-                      <span className='text-blue-400'>constructor</span>() {'{'}
+                      <span className='text-accent-blue'>
+                        constructor
+                      </span>() {'{'}
                       <br />
                       &nbsp;&nbsp;&nbsp;&nbsp;this.mission ={' '}
-                      <span className='text-accent-blue'>
+                      <span className='text-slate-300'>
                         &apos;Scale ideas&apos;
                       </span>
                       ;<br />
@@ -202,10 +210,10 @@ export default function Home() {
                       <AnimatePresence mode='wait'>
                         <motion.span
                           key={stackWords[index]}
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          className='text-accent-blue inline-block'
+                          initial={{ opacity: 0, y: 5 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -5 }}
+                          className='text-white inline-block'
                         >
                           {stackWords[index]}
                         </motion.span>
@@ -229,13 +237,12 @@ export default function Home() {
             id='servicios'
             className='min-h-screen flex flex-col justify-center px-6 max-w-7xl mx-auto snap-start'
           >
-            <div className='mb-16'>
+            <div className='mb-16 group'>
               <h2 className='text-accent-blue font-mono text-sm tracking-[0.4em] uppercase mb-4'>
                 Especialidades
               </h2>
               <h3 className='text-5xl md:text-7xl font-black uppercase tracking-tighter'>
-                Diseño &{' '}
-                <span className='text-white/40 italic'>Desarrollo</span>
+                Diseño & <span className={ghostTextClass}>Desarrollo</span>
               </h3>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
@@ -267,19 +274,22 @@ export default function Home() {
               ].map((service, i) => (
                 <motion.div
                   key={i}
-                  whileHover={{ y: -10 }}
-                  className='p-8 rounded-3xl border border-white/5 bg-white/5 backdrop-blur-3xl flex flex-col group hover:border-neon-green/30 transition-all'
+                  whileHover={{
+                    y: -10,
+                    backgroundColor: 'rgba(0, 242, 255, 0.03)',
+                  }}
+                  className='p-8 rounded-3xl border border-white/5 bg-white/2 backdrop-blur-3xl flex flex-col group hover:border-accent-blue/40 transition-all duration-500'
                 >
-                  <div className='text-3xl mb-6 group-hover:scale-110 transition-transform origin-left'>
+                  <div className='text-3xl mb-6 group-hover:scale-125 group-hover:drop-shadow-[0_0_15px_rgba(0,242,255,0.6)] transition-all'>
                     {service.icon}
                   </div>
-                  <h4 className='text-xl font-bold mb-4 uppercase group-hover:text-neon-green transition-colors'>
+                  <h4 className='text-xl font-bold mb-4 uppercase group-hover:text-accent-blue transition-colors'>
                     {service.title}
                   </h4>
-                  <p className='text-gray-400 text-sm leading-relaxed mb-8 grow'>
+                  <p className='text-slate-500 text-sm leading-relaxed mb-8 grow group-hover:text-slate-200 transition-colors'>
                     {service.desc}
                   </p>
-                  <div className='pt-6 border-t border-white/5 font-mono text-[9px] text-accent-blue uppercase tracking-widest'>
+                  <div className='pt-6 border-t border-white/5 font-mono text-[9px] text-slate-600 group-hover:text-accent-blue uppercase tracking-widest transition-colors'>
                     {service.tag}
                   </div>
                 </motion.div>
@@ -287,23 +297,21 @@ export default function Home() {
             </div>
           </section>
 
-          {/* PORTFOLIO - ESPACIO DE RESUMEN ACTUALIZADO */}
+          {/* PORTFOLIO */}
           <section
             id='portfolio'
             className='min-h-screen flex flex-col justify-center px-6 max-w-7xl mx-auto snap-start py-20'
           >
-            <div className='mb-16'>
+            <div className='mb-16 group'>
               <h2 className='text-accent-blue font-mono text-sm tracking-[0.4em] uppercase mb-4'>
                 Casos de Éxito
               </h2>
               <h3 className='text-5xl md:text-7xl font-black uppercase tracking-tighter'>
-                Portfolio en{' '}
-                <span className='text-white/40 italic'>Despliegue</span>
+                Portfolio en <span className={ghostTextClass}>Despliegue</span>
               </h3>
-              <p className='text-gray-400 mt-6 max-w-2xl text-lg'>
+              <p className='text-slate-400 mt-6 max-w-2xl text-lg'>
                 Estamos actualizando nuestra galería con los proyectos más
-                recientes. Nuestra experiencia abarca desde infraestructuras
-                críticas hasta interfaces de usuario de nueva generación.
+                recientes.
               </p>
             </div>
 
@@ -312,52 +320,58 @@ export default function Home() {
                 {
                   title: 'SaaS Architecture',
                   type: 'Backend • Cloud',
-                  desc: 'Sistemas distribuidos de alta disponibilidad diseñados para escalar sin fricciones.',
+                  desc: 'Sistemas distribuidos de alta disponibilidad diseñados para escalar.',
                   icon: '⚙️',
                 },
                 {
                   title: 'High-Performance UI',
                   type: 'Frontend • UX',
-                  desc: 'Experiencias de usuario ultra-fluidas desarrolladas con tecnologías de renderizado moderno.',
+                  desc: 'Experiencias de usuario ultra-fluidas con renderizado moderno.',
                   icon: '🎨',
                 },
                 {
                   title: 'Neural & AI Ops',
                   type: 'Automation',
-                  desc: 'Optimización de procesos mediante integración de agentes inteligentes y flujos autónomos.',
+                  desc: 'Optimización de procesos mediante agentes inteligentes.',
                   icon: '🤖',
                 },
               ].map((proj, i) => (
                 <motion.div
                   key={i}
-                  whileHover={{ y: -5 }}
-                  className='p-8 rounded-3xl border border-white/5 bg-white/2 backdrop-blur-sm group hover:border-accent-blue/50 transition-all'
+                  whileHover={{ y: -5, borderColor: 'rgba(0, 242, 255, 0.3)' }}
+                  className='p-8 rounded-3xl border border-white/5 bg-white/1 backdrop-blur-sm group transition-all'
                 >
-                  <div className='w-full aspect-video rounded-xl bg-white/5 mb-6 overflow-hidden flex items-center justify-center border border-white/5'>
-                    <span className='text-[10px] text-gray-600 font-mono uppercase tracking-[0.3em] group-hover:text-accent-blue transition-colors'>
-                      [ Loading_Assets ]
+                  <div className='w-full aspect-video rounded-xl bg-slate-900/50 mb-6 overflow-hidden flex items-center justify-center border border-white/5 group-hover:border-accent-blue/20 transition-all'>
+                    <span className='text-[10px] text-slate-600 font-mono uppercase tracking-[0.3em] group-hover:text-accent-blue group-hover:animate-pulse transition-colors'>
+                      [ Inyectando_Datos ]
                     </span>
                   </div>
-                  <h4 className='text-xl font-bold uppercase mb-2'>
+                  <h4 className='text-xl font-bold uppercase mb-2 group-hover:text-white transition-colors'>
                     {proj.title}
                   </h4>
                   <p className='text-accent-blue font-mono text-[10px] uppercase tracking-widest mb-4'>
                     {proj.type}
                   </p>
-                  <p className='text-gray-500 text-sm leading-relaxed'>
+                  <p className='text-slate-500 text-sm leading-relaxed group-hover:text-slate-300 transition-colors'>
                     {proj.desc}
                   </p>
                 </motion.div>
               ))}
             </div>
           </section>
+
+          {/* ARSENAL TECNOLÓGICO */}
           <section className='py-32 px-6'>
-            <div className='text-center mb-16'>
-              <h2 className='text-3xl md:text-5xl font-bold bg-linear-to-b from-white to-gray-500 bg-clip-text text-transparent mb-4 uppercase tracking-tighter'>
-                Arsenal Tecnológico
+            <div className='mb-16 group text-center'>
+              <h2 className='text-accent-blue font-mono text-sm tracking-[0.4em] uppercase mb-4'>
+                Stack de Ingeniería
               </h2>
-              <p className='text-gray-400 max-w-3xl mx-auto text-sm md:text-base'>
-                Stack de ingeniería seleccionado para máxima escalabilidad.
+              <h3 className='text-5xl md:text-7xl font-black uppercase tracking-tighter'>
+                Arsenal <span className={ghostTextClass}>Tecnológico</span>
+              </h3>
+              <p className='text-slate-400 mt-6 max-w-2xl mx-auto text-lg'>
+                Herramientas seleccionadas para máxima escalabilidad y
+                rendimiento.
               </p>
             </div>
 
@@ -379,87 +393,59 @@ export default function Home() {
                 <motion.div
                   key={tech.name}
                   whileHover={{
-                    scale: 1.02,
-                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                    scale: 1.05,
+                    backgroundColor: 'rgba(0, 242, 255, 0.05)',
+                    borderColor: 'rgba(0, 242, 255, 0.2)',
                   }}
-                  className='flex flex-col items-center justify-center p-8 rounded-xl bg-[#111]/50 border border-white/5 backdrop-blur-sm shadow-2xl transition-colors group'
+                  className='flex flex-col items-center justify-center p-8 rounded-xl bg-slate-900/20 border border-white/5 backdrop-blur-sm transition-all group'
                 >
                   <div className='text-3xl mb-4 grayscale group-hover:grayscale-0 transition-all'>
                     {tech.icon}
                   </div>
-                  <span className='text-white font-semibold tracking-tight opacity-80 group-hover:opacity-100 transition-opacity'>
+                  <span className='text-slate-500 font-semibold tracking-tight group-hover:text-white transition-colors'>
                     {tech.name}
                   </span>
                 </motion.div>
               ))}
             </div>
           </section>
-          {/* CONTACTO - AJUSTADO CON MÁS ESPACIO SUPERIOR */}
+
+          {/* CONTACTO */}
           <section
             id='contacto'
             className='min-h-screen flex flex-col items-center justify-center px-6 snap-start py-24'
           >
             <div className='max-w-2xl w-full'>
-              <div className='p-10 md:p-14 rounded-4xl border border-white/5 bg-white/5 backdrop-blur-3xl relative overflow-hidden text-center shadow-2xl'>
-                <div className='absolute -top-12 -right-12 w-48 h-48 bg-neon-green/10 rounded-full blur-[60px]' />
-                <div className='absolute -bottom-12 -left-12 w-48 h-48 bg-accent-blue/10 rounded-full blur-[60px]' />
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                >
-                  <h2 className='text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6 leading-none'>
-                    ¿Tienes un <br />{' '}
-                    <span className='text-white/40 italic'>Proyecto?</span>
-                  </h2>
-                  <p className='text-gray-400 text-sm md:text-base mb-10 max-w-sm mx-auto'>
-                    Estamos listos para construir la próxima generación de tu
-                    producto digital. Cuéntanos tu idea.
-                  </p>
-
-                  <div className='flex flex-col sm:flex-row items-center justify-center gap-4'>
-                    <a
-                      href='mailto:cunaguarosdev@gmail.com'
-                      className='w-full sm:w-auto bg-white text-black px-8 py-4 rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:scale-105 transition-transform'
-                    >
-                      Enviar Correo
-                    </a>
-                    <a
-                      href='https://wa.me/TUNUMERO'
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      className='w-full sm:w-auto border border-white/10 hover:bg-white/5 px-8 py-4 rounded-full text-[10px] font-black uppercase tracking-[0.2em] transition-all'
-                    >
-                      WhatsApp
-                    </a>
-                  </div>
-
-                  <div className='mt-12 pt-8 border-t border-white/5 flex justify-center gap-10 text-gray-500'>
-                    <div className='text-center'>
-                      <p className='text-[8px] uppercase tracking-widest mb-1 font-mono'>
-                        Localización
-                      </p>
-                      <p className='text-xs font-bold text-white uppercase'>
-                        Worldwide
-                      </p>
-                    </div>
-                    <div className='text-center'>
-                      <p className='text-[8px] uppercase tracking-widest mb-1 font-mono'>
-                        Status
-                      </p>
-                      <p className='text-xs font-bold text-white uppercase'>
-                        Disponible
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              </div>
+              <motion.div className='p-10 md:p-14 rounded-4xl border border-white/5 bg-slate-900/10 backdrop-blur-3xl relative overflow-hidden text-center shadow-2xl transition-all group hover:border-accent-blue/20'>
+                <div className='absolute -top-12 -right-12 w-48 h-48 bg-accent-blue/10 rounded-full blur-[60px]' />
+                <h2 className='text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6 leading-none'>
+                  ¿Tienes un <br />{' '}
+                  <span className={ghostTextClass}>Proyecto?</span>
+                </h2>
+                <p className='text-slate-500 text-sm md:text-base mb-10 max-w-sm mx-auto group-hover:text-slate-300 transition-colors'>
+                  Estamos listos para construir la próxima generación de tu
+                  producto digital.
+                </p>
+                <div className='flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10'>
+                  <a
+                    href='mailto:cunaguarosdev@gmail.com'
+                    className='w-full sm:w-auto bg-white text-black px-8 py-4 rounded-full text-[10px] font-black uppercase tracking-[0.2em] hover:bg-accent-blue hover:text-white transition-all'
+                  >
+                    Enviar Correo
+                  </a>
+                  <a
+                    href='https://wa.me/TUNUMERO'
+                    className='w-full sm:w-auto border border-white/10 hover:bg-white/5 px-8 py-4 rounded-full text-[10px] font-black uppercase tracking-[0.2em] transition-all'
+                  >
+                    WhatsApp
+                  </a>
+                </div>
+              </motion.div>
             </div>
           </section>
         </main>
 
-        <footer className='py-12 border-t border-white/5 text-center text-[10px] text-gray-600 uppercase tracking-widest relative z-10'>
+        <footer className='py-12 border-t border-white/5 text-center text-[10px] text-slate-700 uppercase tracking-widest relative z-10'>
           © 2026 CunaguarosDev. Engineering the future.
         </footer>
       </BubbleBackground>
