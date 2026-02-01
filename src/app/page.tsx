@@ -17,30 +17,39 @@ const team = [
     name: 'Raúl Rangel',
     role: 'Ingeniero Lead / Fullstack',
     desc: 'Arquitecto principal de sistemas, especializado en orquestar soluciones integrales de alto rendimiento y escalabilidad.',
-    icon: '👨‍💻',
+    image: '/1.jpg',
   },
   {
     name: 'Alejandra Chacón',
     role: 'Ingeniera especialista en UI Design',
     desc: 'Experta en fusionar la potencia del código con interfaces intuitivas y estéticas vanguardistas que elevan la experiencia de usuario a niveles premium.',
-    icon: '👩‍🎨',
+    image: '/2.jpg',
   },
   {
     name: 'Deivid Vargas',
     role: 'Ingeniero Backend',
     desc: 'Especialista en lógica de servidor, bases de datos robustas y la optimización de procesos críticos de infraestructura.',
-    icon: '⚙️',
+    image: '/3.jpg',
   },
 ]
 
 export default function Home() {
   const [index, setIndex] = useState(0)
 
+  // Efecto para el cambio de palabras en el stack
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % stackWords.length)
     }, 3000)
     return () => clearInterval(interval)
+  }, [])
+
+  // NUEVO: Efecto para regresar al inicio al actualizar la página
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.history.scrollRestoration = 'manual'
+      window.scrollTo(0, 0)
+    }
   }, [])
 
   const scrollToSection = (id: string) => {
@@ -114,6 +123,7 @@ export default function Home() {
         </nav>
 
         <main className='relative z-10'>
+          {/* HERO */}
           <section
             id='inicio'
             className='group relative px-6 max-w-7xl mx-auto min-h-screen flex flex-col items-center justify-center text-center snap-start'
@@ -148,6 +158,7 @@ export default function Home() {
             </motion.div>
           </section>
 
+          {/* NOSOTROS */}
           <section
             id='nosotros'
             className='min-h-screen flex items-center px-6 max-w-7xl mx-auto snap-start'
@@ -204,6 +215,7 @@ export default function Home() {
             </div>
           </section>
 
+          {/* SERVICIOS */}
           <section
             id='servicios'
             className='min-h-screen flex flex-col justify-center px-6 max-w-7xl mx-auto snap-start'
@@ -240,6 +252,7 @@ export default function Home() {
             </div>
           </section>
 
+          {/* PORTFOLIO */}
           <section
             id='portfolio'
             className='min-h-screen flex flex-col justify-center px-6 max-w-7xl mx-auto snap-start py-20'
@@ -275,6 +288,7 @@ export default function Home() {
             </div>
           </section>
 
+          {/* EQUIPO */}
           <section
             id='equipo'
             className='min-h-screen flex flex-col justify-center px-6 max-w-7xl mx-auto snap-start py-20'
@@ -295,8 +309,14 @@ export default function Home() {
                   className='group p-8 rounded-3xl border border-white/5 bg-slate-900/10 backdrop-blur-xl hover:border-accent-blue/30 transition-all'
                 >
                   <div className='relative w-full aspect-square rounded-2xl overflow-hidden mb-8 border border-white/10 group-hover:border-accent-blue/50 transition-all'>
-                    <div className='w-full h-full bg-slate-800 flex items-center justify-center text-5xl grayscale group-hover:grayscale-0 transition-all'>
-                      {member.icon}
+                    <div className='relative w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500'>
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        priority // Ayuda a que las fotos carguen rápido tras el refresco
+                        className='object-cover transform group-hover:scale-105 transition-transform duration-700'
+                      />
                     </div>
                   </div>
                   <h4 className='text-2xl font-black uppercase tracking-tighter mb-1'>
@@ -313,6 +333,7 @@ export default function Home() {
             </div>
           </section>
 
+          {/* ARSENAL */}
           <section className='py-32 px-6 group'>
             <div className='mb-16 text-center'>
               <h3 className='text-5xl md:text-7xl font-black uppercase tracking-tighter'>
@@ -349,6 +370,7 @@ export default function Home() {
             </div>
           </section>
 
+          {/* CONTACTO */}
           <section
             id='contacto'
             className='min-h-screen flex flex-col items-center justify-center px-6 snap-start'
