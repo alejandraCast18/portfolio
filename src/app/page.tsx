@@ -36,6 +36,7 @@ const team = [
 export default function Home() {
   const [index, setIndex] = useState(0)
 
+  // Efecto para el cambio de palabras en el stack
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % stackWords.length)
@@ -43,6 +44,7 @@ export default function Home() {
     return () => clearInterval(interval)
   }, [])
 
+  // NUEVO: Efecto para regresar al inicio al actualizar la página
   useEffect(() => {
     if (typeof window !== 'undefined') {
       window.history.scrollRestoration = 'manual'
@@ -140,16 +142,7 @@ export default function Home() {
               </div>
               <h1 className='text-6xl md:text-[110px] font-black leading-[0.85] tracking-tighter mb-10 uppercase'>
                 Innovación <br />
-                <motion.span
-                  whileInView={{
-                    color: '#00f2ff',
-                    textShadow: '0 0 20px rgba(0,242,255,0.6)',
-                  }}
-                  viewport={{ amount: 0.5 }}
-                  className={ghostTextClass}
-                >
-                  Digital
-                </motion.span>
+                <span className={ghostTextClass}>Digital</span>
               </h1>
               <p className='text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-light'>
                 Arquitectura de software{' '}
@@ -180,16 +173,8 @@ export default function Home() {
                   Sobre Nosotros
                 </h2>
                 <h3 className='text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none'>
-                  Ingeniería con <br />
-                  <motion.span
-                    whileInView={{
-                      color: '#00f2ff',
-                      textShadow: '0 0 20px rgba(0,242,255,0.4)',
-                    }}
-                    className={ghostTextClass}
-                  >
-                    Instinto Digital
-                  </motion.span>
+                  Ingeniería con <br />{' '}
+                  <span className={ghostTextClass}>Instinto Digital</span>
                 </h3>
                 <p className='text-slate-400 text-lg leading-relaxed'>
                   En{' '}
@@ -240,13 +225,7 @@ export default function Home() {
                 Especialidades
               </h2>
               <h3 className='text-5xl md:text-7xl font-black uppercase tracking-tighter'>
-                Diseño &{' '}
-                <motion.span
-                  whileInView={{ color: '#00f2ff' }}
-                  className={ghostTextClass}
-                >
-                  Desarrollo
-                </motion.span>
+                Diseño & <span className={ghostTextClass}>Desarrollo</span>
               </h3>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
@@ -258,18 +237,13 @@ export default function Home() {
               ].map((s, i) => (
                 <motion.div
                   key={i}
-                  whileInView={{ borderColor: 'rgba(0, 242, 255, 0.4)', y: -5 }}
-                  viewport={{ amount: 0.7 }}
                   whileHover={{ y: -10 }}
                   className='p-8 rounded-3xl border border-white/5 bg-white/2 backdrop-blur-3xl group hover:border-accent-blue/40 transition-all'
                 >
                   <div className='text-3xl mb-6'>{s.icon}</div>
-                  <motion.h4
-                    whileInView={{ color: '#00f2ff' }}
-                    className='text-xl font-bold mb-4 uppercase group-hover:text-accent-blue'
-                  >
+                  <h4 className='text-xl font-bold mb-4 uppercase group-hover:text-accent-blue'>
                     {s.title}
-                  </motion.h4>
+                  </h4>
                   <div className='pt-6 border-t border-white/5 font-mono text-[9px] text-slate-600 uppercase tracking-widest'>
                     {s.tag}
                   </div>
@@ -288,13 +262,7 @@ export default function Home() {
                 Casos de Éxito
               </h2>
               <h3 className='text-5xl md:text-7xl font-black uppercase tracking-tighter'>
-                Portfolio en{' '}
-                <motion.span
-                  whileInView={{ color: '#00f2ff' }}
-                  className={ghostTextClass}
-                >
-                  Despliegue
-                </motion.span>
+                Portfolio en <span className={ghostTextClass}>Despliegue</span>
               </h3>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
@@ -303,12 +271,8 @@ export default function Home() {
                 'High-Performance UI',
                 'Neural & AI Ops',
               ].map((t, i) => (
-                <motion.div
+                <div
                   key={i}
-                  whileInView={{
-                    borderColor: 'rgba(0, 242, 255, 0.2)',
-                    scale: 1.02,
-                  }}
                   className='p-8 rounded-3xl border border-white/5 bg-white/1 backdrop-blur-sm group hover:border-accent-blue/20 transition-all'
                 >
                   <div className='w-full aspect-video rounded-xl bg-slate-900/50 mb-6 flex items-center justify-center border border-white/5'>
@@ -316,18 +280,15 @@ export default function Home() {
                       [ Inyectando_Datos ]
                     </span>
                   </div>
-                  <motion.h4
-                    whileInView={{ color: '#00f2ff' }}
-                    className='text-xl font-bold uppercase group-hover:text-accent-blue'
-                  >
+                  <h4 className='text-xl font-bold uppercase group-hover:text-accent-blue'>
                     {t}
-                  </motion.h4>
-                </motion.div>
+                  </h4>
+                </div>
               ))}
             </div>
           </section>
 
-          {/* EQUIPO - SOLUCIÓN AL ERROR DE GRAYSCALE */}
+          {/* EQUIPO */}
           <section
             id='equipo'
             className='min-h-screen flex flex-col justify-center px-6 max-w-7xl mx-auto snap-start py-20'
@@ -337,13 +298,7 @@ export default function Home() {
                 Talento Senior
               </h2>
               <h3 className='text-5xl md:text-7xl font-black uppercase tracking-tighter'>
-                Núcleo de{' '}
-                <motion.span
-                  whileInView={{ color: '#00f2ff' }}
-                  className={ghostTextClass}
-                >
-                  Ingeniería
-                </motion.span>
+                Núcleo de <span className={ghostTextClass}>Ingeniería</span>
               </h3>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
@@ -351,27 +306,18 @@ export default function Home() {
                 <motion.div
                   key={i}
                   whileHover={{ y: -10 }}
-                  whileInView={{ borderColor: 'rgba(0, 242, 255, 0.3)', y: -5 }}
-                  viewport={{ amount: 0.4 }}
                   className='group p-8 rounded-3xl border border-white/5 bg-slate-900/10 backdrop-blur-xl hover:border-accent-blue/30 transition-all'
                 >
                   <div className='relative w-full aspect-square rounded-2xl overflow-hidden mb-8 border border-white/10 group-hover:border-accent-blue/50 transition-all'>
-                    {/* USANDO FILTER PARA EVITAR EL ERROR DE TYPESCRIPT */}
-                    <motion.div
-                      initial={{ filter: 'grayscale(100%)' }}
-                      whileInView={{ filter: 'grayscale(0%)', scale: 1.05 }}
-                      viewport={{ amount: 0.6 }}
-                      transition={{ duration: 0.8 }}
-                      className='relative w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500'
-                    >
+                    <div className='relative w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500'>
                       <Image
                         src={member.image}
                         alt={member.name}
                         fill
-                        priority
-                        className='object-cover transform transition-transform duration-700'
+                        priority // Ayuda a que las fotos carguen rápido tras el refresco
+                        className='object-cover transform group-hover:scale-105 transition-transform duration-700'
                       />
-                    </motion.div>
+                    </div>
                   </div>
                   <h4 className='text-2xl font-black uppercase tracking-tighter mb-1'>
                     {member.name}
@@ -391,13 +337,7 @@ export default function Home() {
           <section className='py-32 px-6 group'>
             <div className='mb-16 text-center'>
               <h3 className='text-5xl md:text-7xl font-black uppercase tracking-tighter'>
-                Arsenal{' '}
-                <motion.span
-                  whileInView={{ color: '#00f2ff' }}
-                  className={ghostTextClass}
-                >
-                  Tecnológico
-                </motion.span>
+                Arsenal <span className={ghostTextClass}>Tecnológico</span>
               </h3>
             </div>
             <div className='grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto'>
@@ -413,29 +353,18 @@ export default function Home() {
               ].map((tech) => (
                 <motion.div
                   key={tech.name}
-                  whileInView={{
-                    backgroundColor: 'rgba(0, 242, 255, 0.08)',
-                    scale: 1.05,
-                  }}
                   whileHover={{
                     scale: 1.05,
                     backgroundColor: 'rgba(0, 242, 255, 0.05)',
                   }}
                   className='flex flex-col items-center p-8 rounded-xl bg-slate-900/20 border border-white/5 backdrop-blur-sm transition-all group'
                 >
-                  <motion.div
-                    initial={{ filter: 'grayscale(100%)' }}
-                    whileInView={{ filter: 'grayscale(0%)' }}
-                    className='text-3xl mb-4 transition-all'
-                  >
+                  <div className='text-3xl mb-4 grayscale group-hover:grayscale-0 transition-all'>
                     {tech.icon}
-                  </motion.div>
-                  <motion.span
-                    whileInView={{ color: '#fff' }}
-                    className='text-slate-500 font-semibold group-hover:text-white'
-                  >
+                  </div>
+                  <span className='text-slate-500 font-semibold group-hover:text-white'>
                     {tech.name}
-                  </motion.span>
+                  </span>
                 </motion.div>
               ))}
             </div>
@@ -447,18 +376,10 @@ export default function Home() {
             className='min-h-screen flex flex-col items-center justify-center px-6 snap-start'
           >
             <div className='max-w-2xl w-full group'>
-              <motion.div
-                whileInView={{ borderColor: 'rgba(0, 242, 255, 0.4)' }}
-                className='p-10 md:p-14 rounded-4xl border border-white/5 bg-slate-900/10 backdrop-blur-3xl text-center relative overflow-hidden hover:border-accent-blue/20 transition-all'
-              >
+              <motion.div className='p-10 md:p-14 rounded-4xl border border-white/5 bg-slate-900/10 backdrop-blur-3xl text-center relative overflow-hidden hover:border-accent-blue/20 transition-all'>
                 <h2 className='text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6'>
                   ¿Tienes un <br />{' '}
-                  <motion.span
-                    whileInView={{ color: '#00f2ff' }}
-                    className={ghostTextClass}
-                  >
-                    Proyecto?
-                  </motion.span>
+                  <span className={ghostTextClass}>Proyecto?</span>
                 </h2>
                 <div className='flex flex-col sm:flex-row justify-center gap-4 mt-10'>
                   <a
