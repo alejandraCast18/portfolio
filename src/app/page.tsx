@@ -36,7 +36,6 @@ const team = [
 export default function Home() {
   const [index, setIndex] = useState(0)
 
-  // Efecto para el cambio de palabras en el stack
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % stackWords.length)
@@ -44,7 +43,6 @@ export default function Home() {
     return () => clearInterval(interval)
   }, [])
 
-  // NUEVO: Efecto para regresar al inicio al actualizar la página
   useEffect(() => {
     if (typeof window !== 'undefined') {
       window.history.scrollRestoration = 'manual'
@@ -123,7 +121,6 @@ export default function Home() {
         </nav>
 
         <main className='relative z-10'>
-          {/* HERO */}
           <section
             id='inicio'
             className='group relative px-6 max-w-7xl mx-auto min-h-screen flex flex-col items-center justify-center text-center snap-start'
@@ -158,7 +155,6 @@ export default function Home() {
             </motion.div>
           </section>
 
-          {/* NOSOTROS */}
           <section
             id='nosotros'
             className='min-h-screen flex items-center px-6 max-w-7xl mx-auto snap-start'
@@ -196,12 +192,15 @@ export default function Home() {
                     &nbsp;&nbsp;&nbsp;&nbsp;&quot;
                     <AnimatePresence mode='wait'>
                       <motion.span
-                        key={stackWords[index]}
-                        initial={{ opacity: 0, y: 5 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -5 }}
+                        whileInView={{
+                          color: '#00f2ff',
+                          textShadow: '0 0 20px rgba(0,242,255,0.8)',
+                        }}
+                        viewport={{ once: false, amount: 0.6 }}
+                        transition={{ duration: 0.6 }}
+                        className={ghostTextClass}
                       >
-                        {stackWords[index]}
+                        Digital
                       </motion.span>
                     </AnimatePresence>
                     &quot;
@@ -215,7 +214,6 @@ export default function Home() {
             </div>
           </section>
 
-          {/* SERVICIOS */}
           <section
             id='servicios'
             className='min-h-screen flex flex-col justify-center px-6 max-w-7xl mx-auto snap-start'
@@ -252,43 +250,6 @@ export default function Home() {
             </div>
           </section>
 
-          {/* PORTFOLIO */}
-          <section
-            id='portfolio'
-            className='min-h-screen flex flex-col justify-center px-6 max-w-7xl mx-auto snap-start py-20'
-          >
-            <div className='mb-16 group'>
-              <h2 className='text-accent-blue font-mono text-sm tracking-[0.4em] uppercase mb-4'>
-                Casos de Éxito
-              </h2>
-              <h3 className='text-5xl md:text-7xl font-black uppercase tracking-tighter'>
-                Portfolio en <span className={ghostTextClass}>Despliegue</span>
-              </h3>
-            </div>
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
-              {[
-                'SaaS Architecture',
-                'High-Performance UI',
-                'Neural & AI Ops',
-              ].map((t, i) => (
-                <div
-                  key={i}
-                  className='p-8 rounded-3xl border border-white/5 bg-white/1 backdrop-blur-sm group hover:border-accent-blue/20 transition-all'
-                >
-                  <div className='w-full aspect-video rounded-xl bg-slate-900/50 mb-6 flex items-center justify-center border border-white/5'>
-                    <span className='text-[10px] text-slate-600 font-mono'>
-                      [ Inyectando_Datos ]
-                    </span>
-                  </div>
-                  <h4 className='text-xl font-bold uppercase group-hover:text-accent-blue'>
-                    {t}
-                  </h4>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* EQUIPO */}
           <section
             id='equipo'
             className='min-h-screen flex flex-col justify-center px-6 max-w-7xl mx-auto snap-start py-20'
@@ -314,7 +275,7 @@ export default function Home() {
                         src={member.image}
                         alt={member.name}
                         fill
-                        priority // Ayuda a que las fotos carguen rápido tras el refresco
+                        priority
                         className='object-cover transform group-hover:scale-105 transition-transform duration-700'
                       />
                     </div>
@@ -333,7 +294,7 @@ export default function Home() {
             </div>
           </section>
 
-          {/* ARSENAL */}
+          {/* Arsenal, Contacto y Footer se mantienen iguales */}
           <section className='py-32 px-6 group'>
             <div className='mb-16 text-center'>
               <h3 className='text-5xl md:text-7xl font-black uppercase tracking-tighter'>
@@ -370,7 +331,6 @@ export default function Home() {
             </div>
           </section>
 
-          {/* CONTACTO */}
           <section
             id='contacto'
             className='min-h-screen flex flex-col items-center justify-center px-6 snap-start'
