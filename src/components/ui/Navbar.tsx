@@ -10,7 +10,7 @@ export const Navbar = () => {
   }
 
   return (
-    <nav className='fixed top-0 w-full z-[100] bg-[#050505]/60 backdrop-blur-xl border-b border-white/5'>
+    <nav className='fixed top-0 w-full z-100 bg-[#050505]/60 backdrop-blur-xl border-b border-white/5'>
       <div className='max-w-7xl mx-auto px-6 h-20 flex justify-between items-center'>
         {/* Cambiamos el div por un Link de Next.js */}
         <Link

@@ -21,7 +21,7 @@ export const About = () => {
       className='min-h-screen py-24 px-6 relative z-10 flex items-center overflow-hidden bg-transparent'
     >
       {/* Luces de ambiente */}
-      <div className='absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-600/10 blur-[120px] rounded-full -z-10' />
+      <div className='absolute top-1/2 left-0 -translate-y-1/2 w-125 h-125 bg-cyan-600/10 blur-[120px] rounded-full -z-10' />
 
       <div className='max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center'>
         {/* TEXTO IZQUIERDO */}
@@ -59,7 +59,7 @@ export const About = () => {
           viewport={{ once: true }}
           className='relative group'
         >
-          <div className='absolute -inset-1 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-2xl blur opacity-10 group-hover:opacity-30 transition duration-1000'></div>
+          <div className='absolute -inset-1 bg-linear-to-r from-cyan-500 to-purple-600 rounded-2xl blur opacity-10 group-hover:opacity-30 transition duration-1000'></div>
 
           {/* Único cambio: bg-[#080808] -> bg-black/40 y añadido backdrop-blur-md */}
           <div className='relative bg-black/40 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden shadow-2xl'>
@@ -103,7 +103,7 @@ export const About = () => {
               />
             </motion.div>
 
-            <div className='px-5 py-2 bg-white/[0.02] border-t border-white/5 flex gap-4'>
+            <div className='px-5 py-2 bg-white/2 border-t border-white/5 flex gap-4'>
               <span className='text-[9px] text-slate-600 font-mono'>Ready</span>
               <span className='text-[9px] text-cyan-500/50 font-mono'>Connected</span>
             </div>

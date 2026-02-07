@@ -48,7 +48,7 @@ export const Team = () => {
         {team.map((m) => (
           <div key={m.name} className='group cursor-default'>
             {/* CARD ILUMINADA: Añadí transición de borde y sombra cian en hover */}
-            <div className='relative aspect-[3/4] rounded-[2rem] overflow-hidden mb-6 border border-white/10 group-hover:border-cyan-400/50 group-hover:shadow-[0_0_30px_rgba(0,255,150,0.2)] transition-all duration-500'>
+            <div className='relative aspect-3/4 rounded-4xl overflow-hidden mb-6 border border-white/10 group-hover:border-cyan-400/50 group-hover:shadow-[0_0_30px_rgba(0,255,150,0.2)] transition-all duration-500'>
               <Image
                 src={m.image}
                 alt={m.name}

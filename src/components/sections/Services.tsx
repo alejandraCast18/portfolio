@@ -78,10 +78,10 @@ export const Services = () => {
             >
               {/* Tarjeta con transparencia (bg-black/40) para ver la lava atrás */}
               <div
-                className={`relative h-[230px] bg-black/40 border border-white/10 rounded-2xl overflow-hidden backdrop-blur-sm transition-all duration-500 group-hover:border-cyan-500/30 group-hover:-translate-y-1 ${item.glow}`}
+                className={`relative h-57.5 bg-black/40 border border-white/10 rounded-2xl overflow-hidden backdrop-blur-sm transition-all duration-500 group-hover:border-cyan-500/30 group-hover:-translate-y-1 ${item.glow}`}
               >
                 {/* Reflejo de cristal al pasar el mouse */}
-                <div className='absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/5 to-transparent' />
+                <div className='absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-linear-to-r from-transparent via-white/5 to-transparent' />
                 
                 <div className='relative h-full p-6 flex flex-col justify-between z-10'>
                   <div className='text-3xl group-hover:scale-110 transition-transform duration-500 origin-left'>
@@ -94,7 +94,7 @@ export const Services = () => {
                     </h3>
 
                     <div className='flex items-center gap-2'>
-                      <div className='h-[1px] w-4 bg-cyan-500/50 group-hover:w-8 transition-all duration-500' />
+                      <div className='h-px w-4 bg-cyan-500/50 group-hover:w-8 transition-all duration-500' />
                       <span className='text-[8px] font-bold text-zinc-500 tracking-widest group-hover:text-cyan-400 transition-colors uppercase'>
                         {item.tech}
                       </span>

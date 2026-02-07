@@ -11,7 +11,7 @@ export const Hero = () => {
       className='min-h-screen flex flex-col items-center justify-center text-center px-6 relative z-10 overflow-hidden'
     >
       {/* Resplandor Púrpura de fondo */}
-      <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] bg-purple-600/20 blur-[120px] rounded-full -z-10 pointer-events-none' />
+      <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-75 md:w-150 h-75 bg-purple-600/20 blur-[120px] rounded-full -z-10 pointer-events-none' />
 
       {/* Badge Superior */}
       <div className='mb-6 flex items-center gap-2 px-4 py-1 rounded-full border border-cyan-500/30 bg-cyan-950/20'>

@@ -85,7 +85,7 @@ export const Footer = () => {
       </div>
 
       {/* Línea decorativa inferior */}
-      <div className='max-w-7xl mx-auto mt-12 h-[1px] w-full bg-gradient-to-r from-transparent via-zinc-800 to-transparent opacity-30' />
+      <div className='max-w-7xl mx-auto mt-12 h-px w-full bg-linear-to-r from-transparent via-zinc-800 to-transparent opacity-30' />
     </footer>
   )
 }
