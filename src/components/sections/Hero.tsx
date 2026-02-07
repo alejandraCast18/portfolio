@@ -5,6 +5,14 @@ export const Hero = () => {
   const glowTitle =
     'group-hover:text-cyan-400 group-hover:drop-shadow-[0_0_20px_rgba(0,242,255,0.8)] transition-all duration-700'
 
+  // Función reutilizable para el scroll
+  const scrollToPortfolio = () => {
+    const element = document.getElementById('portfolio')
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <section
       id='inicio'
@@ -39,14 +47,10 @@ export const Hero = () => {
         tecnológicos.
       </p>
 
-      {/* Botón corregido: Estilo idéntico al de Portafolio */}
+      {/* Botón de acción principal */}
       <button
+        onClick={scrollToPortfolio}
         className='relative group overflow-hidden border border-cyan-400/50 px-12 py-5 rounded-full font-black uppercase text-[11px] tracking-[0.2em] text-white transition-all hover:border-cyan-400 hover:shadow-[0_0_30px_rgba(0,242,255,0.4)]'
-        onClick={() =>
-          document
-            .getElementById('portafolio')
-            ?.scrollIntoView({ behavior: 'smooth' })
-        }
       >
         <span className='relative z-10'>Iniciar Despliegue</span>
         <div className='absolute inset-0 bg-cyan-400/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500' />
