@@ -38,7 +38,7 @@ export const Services = () => {
       id='servicios'
       className='h-screen w-full px-6 flex flex-col justify-center relative z-10 overflow-hidden'
     >
-      {/* Eliminado el bg-black para que se vea la animación de lava del fondo */}
+ 
       
       <div className='max-w-7xl mx-auto w-full'>
         {/* Cabecera muy compacta */}
@@ -65,7 +65,7 @@ export const Services = () => {
           </motion.h2>
         </div>
 
-        {/* Grid ajustado para no tapar el fondo */}
+
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6'>
           {especialidades.map((item, index) => (
             <motion.div
@@ -76,7 +76,7 @@ export const Services = () => {
               transition={{ delay: index * 0.1 }}
               className='relative group'
             >
-              {/* Tarjeta con transparencia (bg-black/40) para ver la lava atrás */}
+
               <div
                 className={`relative h-57.5 bg-black/40 border border-white/10 rounded-2xl overflow-hidden backdrop-blur-sm transition-all duration-500 group-hover:border-cyan-500/30 group-hover:-translate-y-1 ${item.glow}`}
               >

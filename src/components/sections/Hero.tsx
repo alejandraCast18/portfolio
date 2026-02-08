@@ -5,7 +5,6 @@ export const Hero = () => {
   const glowTitle =
     'group-hover:text-cyan-400 group-hover:drop-shadow-[0_0_20px_rgba(0,242,255,0.8)] transition-all duration-700'
 
-  // Función reutilizable para el scroll
   const scrollToPortfolio = () => {
     const element = document.getElementById('portfolio')
     if (element) {
@@ -18,10 +17,8 @@ export const Hero = () => {
       id='inicio'
       className='min-h-screen flex flex-col items-center justify-center text-center px-6 relative z-10 overflow-hidden'
     >
-      {/* Resplandor Púrpura de fondo */}
       <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-75 md:w-150 h-75 bg-purple-600/20 blur-[120px] rounded-full -z-10 pointer-events-none' />
 
-      {/* Badge Superior */}
       <div className='mb-6 flex items-center gap-2 px-4 py-1 rounded-full border border-cyan-500/30 bg-cyan-950/20'>
         <span className='w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse' />
         <span className='text-[9px] font-bold tracking-[0.2em] text-cyan-400 uppercase'>
@@ -47,7 +44,6 @@ export const Hero = () => {
         tecnológicos.
       </p>
 
-      {/* Botón de acción principal */}
       <button
         onClick={scrollToPortfolio}
         className='relative group overflow-hidden border border-cyan-400/50 px-12 py-5 rounded-full font-black uppercase text-[11px] tracking-[0.2em] text-white transition-all hover:border-cyan-400 hover:shadow-[0_0_30px_rgba(0,242,255,0.4)]'

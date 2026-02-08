@@ -30,7 +30,6 @@ export const Team = () => {
       id='equipo'
       className='min-h-screen w-full flex flex-col justify-center py-12 px-6 max-w-6xl mx-auto overflow-hidden'
     >
-      {/* CABECERA */}
       <div className='w-full mb-10'>
         <span className='text-cyan-400 font-mono text-[10px] tracking-[0.3em] uppercase mb-2 block'>
           Talento Senior
@@ -43,11 +42,9 @@ export const Team = () => {
         </h2>
       </div>
 
-      {/* GRID DE EQUIPO */}
       <div className='grid md:grid-cols-3 gap-8 lg:gap-12 items-start'>
         {team.map((m) => (
           <div key={m.name} className='group cursor-default'>
-            {/* CARD ILUMINADA: Añadí transición de borde y sombra cian en hover */}
             <div className='relative aspect-3/4 rounded-4xl overflow-hidden mb-6 border border-white/10 group-hover:border-cyan-400/50 group-hover:shadow-[0_0_30px_rgba(0,255,150,0.2)] transition-all duration-500'>
               <Image
                 src={m.image}

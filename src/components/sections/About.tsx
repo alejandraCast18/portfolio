@@ -20,11 +20,9 @@ export const About = () => {
       id='nosotros'
       className='min-h-screen py-24 px-6 relative z-10 flex items-center overflow-hidden bg-transparent'
     >
-      {/* Luces de ambiente */}
       <div className='absolute top-1/2 left-0 -translate-y-1/2 w-125 h-125 bg-cyan-600/10 blur-[120px] rounded-full -z-10' />
 
       <div className='max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center'>
-        {/* TEXTO IZQUIERDO */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -52,7 +50,6 @@ export const About = () => {
           </p>
         </motion.div>
 
-        {/* TARJETA DE CÓDIGO INTERACTIVA */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -61,7 +58,6 @@ export const About = () => {
         >
           <div className='absolute -inset-1 bg-linear-to-r from-cyan-500 to-purple-600 rounded-2xl blur opacity-10 group-hover:opacity-30 transition duration-1000'></div>
 
-          {/* Único cambio: bg-[#080808] -> bg-black/40 y añadido backdrop-blur-md */}
           <div className='relative bg-black/40 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden shadow-2xl'>
             <div className='flex items-center justify-between px-5 py-3 bg-white/5 border-b border-white/5'>
               <div className='flex gap-2'>
@@ -81,19 +77,48 @@ export const About = () => {
               viewport={{ once: true }}
               className='p-8 font-mono text-sm md:text-base leading-relaxed'
             >
-              <motion.div variants={lineVariants} className='hover:bg-cyan-500/5 px-2 rounded'>
-                <p><span className='text-purple-400'>const</span> <span className='text-cyan-400'>Service</span> = {'{'}</p>
+              <motion.div
+                variants={lineVariants}
+                className='hover:bg-cyan-500/5 px-2 rounded'
+              >
+                <p>
+                  <span className='text-purple-400'>const</span>{' '}
+                  <span className='text-cyan-400'>Service</span> = {'{'}
+                </p>
               </motion.div>
-              <motion.div variants={lineVariants} className='pl-4 hover:bg-cyan-500/5 px-2 rounded'>
-                <p>performance: <span className='text-yellow-300'>&apos;ultra_high&apos;</span>,</p>
+              <motion.div
+                variants={lineVariants}
+                className='pl-4 hover:bg-cyan-500/5 px-2 rounded'
+              >
+                <p>
+                  performance:{' '}
+                  <span className='text-yellow-300'>
+                    &apos;ultra_high&apos;
+                  </span>
+                  ,
+                </p>
               </motion.div>
-              <motion.div variants={lineVariants} className='pl-4 hover:bg-cyan-500/5 px-2 rounded'>
-                <p>architecture: <span className='text-green-400'>&apos;scalable&apos;</span>,</p>
+              <motion.div
+                variants={lineVariants}
+                className='pl-4 hover:bg-cyan-500/5 px-2 rounded'
+              >
+                <p>
+                  architecture:{' '}
+                  <span className='text-green-400'>&apos;scalable&apos;</span>,
+                </p>
               </motion.div>
-              <motion.div variants={lineVariants} className='pl-4 hover:bg-cyan-500/5 px-2 rounded'>
-                <p>delivery: <span className='text-purple-400'>true</span></p>
+              <motion.div
+                variants={lineVariants}
+                className='pl-4 hover:bg-cyan-500/5 px-2 rounded'
+              >
+                <p>
+                  delivery: <span className='text-purple-400'>true</span>
+                </p>
               </motion.div>
-              <motion.div variants={lineVariants} className='hover:bg-cyan-500/5 px-2 rounded'>
+              <motion.div
+                variants={lineVariants}
+                className='hover:bg-cyan-500/5 px-2 rounded'
+              >
                 <p>{'}'};</p>
               </motion.div>
               <motion.div
@@ -105,7 +130,9 @@ export const About = () => {
 
             <div className='px-5 py-2 bg-white/2 border-t border-white/5 flex gap-4'>
               <span className='text-[9px] text-slate-600 font-mono'>Ready</span>
-              <span className='text-[9px] text-cyan-500/50 font-mono'>Connected</span>
+              <span className='text-[9px] text-cyan-500/50 font-mono'>
+                Connected
+              </span>
             </div>
           </div>
         </motion.div>

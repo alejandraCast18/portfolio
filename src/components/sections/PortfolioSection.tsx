@@ -8,7 +8,6 @@ export const PortfolioSection = () => {
   ]
 
   return (
-    /* h-screen y flex para que ocupe toda la pantalla y esté centrado verticalmente */
     <section
       id='portfolio'
       className='h-screen w-full flex flex-col justify-center px-6 max-w-7xl mx-auto overflow-hidden'
@@ -33,7 +32,6 @@ export const PortfolioSection = () => {
                   [ Inyectando_Datos ]
                 </span>
 
-                {/* Overlay sutil de color en hover */}
                 <div className='absolute inset-0 bg-cyan-400/0 group-hover:bg-cyan-400/5 transition-colors duration-500' />
               </div>
 

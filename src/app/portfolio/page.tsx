@@ -2,7 +2,7 @@
 import { Navbar } from '@/components/ui/Navbar'
 import { BubbleBackground } from '@/components/BubbleBackground'
 import Link from 'next/link'
-import { HiArrowLeft } from 'react-icons/hi' // Necesitas instalar react-icons
+import { HiArrowLeft } from 'react-icons/hi'
 
 export default function PortfolioPage() {
   return (
@@ -10,8 +10,6 @@ export default function PortfolioPage() {
       <Navbar />
       <BubbleBackground interactive={true}>
         <main className='relative z-10 pt-40 pb-20 px-6 max-w-7xl mx-auto'>
-          
-          {/* BOTÓN DE BACK: Estilo idéntico a tus botones de acción */}
           <div className='mb-12'>
             <Link
               href='/'
@@ -39,7 +37,7 @@ export default function PortfolioPage() {
                 <span className='text-[10px] font-mono text-zinc-600 group-hover:text-cyan-400 transition-colors z-10'>
                   [ Proyecto_0{i}_Full_Data ]
                 </span>
-                {/* Efecto de resplandor interno en las cards */}
+
                 <div className='absolute inset-0 bg-cyan-400/0 group-hover:bg-cyan-400/5 transition-colors duration-500' />
               </div>
             ))}

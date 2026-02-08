@@ -16,7 +16,9 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: 'CunaguarosDev',
-  description: 'Desarrollo de software de alto impacto.',
+  icons: {
+    icon: '/logo11.png',
+  },
 }
 
 export default function RootLayout({
