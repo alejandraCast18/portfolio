@@ -1,8 +1,9 @@
 'use client'
-import { motion } from 'framer-motion'
+
+import { motion, Variants } from 'framer-motion'
 
 export const About = () => {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -10,16 +11,42 @@ export const About = () => {
     },
   }
 
-  const lineVariants = {
+  const lineVariants: Variants = {
     hidden: { opacity: 0, x: -15 },
     visible: { opacity: 1, x: 0 },
   }
+
+  // Clase para el efecto de brillo en Desktop (Hover)
+  const glowEffect =
+    'group-hover:text-cyan-400 group-hover:drop-shadow-[0_0_20px_rgba(34,211,238,0.8)] transition-all duration-700'
 
   return (
     <section
       id='nosotros'
       className='min-h-screen py-24 px-6 relative z-10 flex items-center overflow-hidden bg-transparent'
     >
+      <style jsx>{`
+        @keyframes pulse-glow-about {
+          0%,
+          100% {
+            text-shadow: 0 0 0px rgba(34, 211, 238, 0);
+            color: #3f3f46;
+          }
+          50% {
+            text-shadow: 0 0 15px rgba(34, 211, 238, 0.6);
+            color: #22d3ee;
+          }
+        }
+        .mobile-glow-about {
+          animation: pulse-glow-about 3s ease-in-out infinite;
+        }
+        @media (min-width: 768px) {
+          .mobile-glow-about {
+            animation: none;
+          }
+        }
+      `}</style>
+
       <div className='absolute top-1/2 left-0 -translate-y-1/2 w-125 h-125 bg-cyan-600/10 blur-[120px] rounded-full -z-10' />
 
       <div className='max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center'>
@@ -33,21 +60,45 @@ export const About = () => {
             SOBRE NOSOTROS
           </span>
 
-          <h2 className='text-5xl md:text-8xl font-black text-white uppercase tracking-tighter leading-[0.85] mb-8'>
+          <h2 className='text-5xl md:text-8xl font-black text-white uppercase tracking-tighter leading-[0.85] mb-8 group cursor-default'>
             INGENIERÍA CON <br />
-            <span className='text-zinc-500 italic transition-all duration-500 hover:text-cyan-400 hover:drop-shadow-[0_0_30px_rgba(34,211,238,0.8)] cursor-default'>
+            <span
+              className={`text-zinc-700 italic block mobile-glow-about ${glowEffect}`}
+            >
               INSTINTO <br /> DIGITAL
             </span>
           </h2>
 
-          <p className='text-slate-400 text-lg md:text-xl max-w-xl font-light leading-relaxed'>
-            En <span className='text-white font-medium'>CunaguarosDev</span>,
-            construimos sistemas{' '}
-            <span className='text-slate-400 text-lg md:text-xl max-w-xl font-light leading-relaxed italic transition-colors duration-300 hover:text-cyan-400 cursor-default'>
-              robustos
-            </span>{' '}
-            que escalan con tu visión.
-          </p>
+          <div className='space-y-6 text-zinc-300 text-base md:text-xl font-normal leading-relaxed max-w-xl'>
+            <p>
+              Somos un equipo de{' '}
+              <span className='text-white font-bold'>
+                tres ingenieros informáticos
+              </span>{' '}
+              con base en
+              <span className='text-cyan-400'>
+                {' '}
+                San Cristóbal, Estado Táchira
+              </span>
+              .
+            </p>
+            <p>
+              En <span className='text-white font-medium'>CunaguarosDev</span>,
+              fusionamos la disciplina técnica con la agilidad digital para
+              construir sistemas
+              <span className='text-white italic'> robustos</span> que escalan
+              sin fricción.
+            </p>
+
+            <div className='group cursor-default pt-4'>
+              <p
+                className={`text-zinc-700 italic text-sm md:text-lg leading-snug mobile-glow-about ${glowEffect}`}
+              >
+                No solo escribimos código; diseñamos la infraestructura del
+                futuro desde los Andes venezolanos.
+              </p>
+            </div>
+          </div>
         </motion.div>
 
         <motion.div
@@ -75,63 +126,49 @@ export const About = () => {
               initial='hidden'
               whileInView='visible'
               viewport={{ once: true }}
-              className='p-8 font-mono text-sm md:text-base leading-relaxed'
+              className='p-8 font-mono text-xs md:text-sm leading-relaxed'
             >
-              <motion.div
-                variants={lineVariants}
-                className='hover:bg-cyan-500/5 px-2 rounded'
-              >
-                <p>
-                  <span className='text-purple-400'>const</span>{' '}
-                  <span className='text-cyan-400'>Service</span> = {'{'}
-                </p>
-              </motion.div>
-              <motion.div
-                variants={lineVariants}
-                className='pl-4 hover:bg-cyan-500/5 px-2 rounded'
-              >
-                <p>
-                  performance:{' '}
-                  <span className='text-yellow-300'>
-                    &apos;ultra_high&apos;
-                  </span>
-                  ,
-                </p>
-              </motion.div>
-              <motion.div
-                variants={lineVariants}
-                className='pl-4 hover:bg-cyan-500/5 px-2 rounded'
-              >
-                <p>
-                  architecture:{' '}
-                  <span className='text-green-400'>&apos;scalable&apos;</span>,
-                </p>
-              </motion.div>
-              <motion.div
-                variants={lineVariants}
-                className='pl-4 hover:bg-cyan-500/5 px-2 rounded'
-              >
-                <p>
-                  delivery: <span className='text-purple-400'>true</span>
-                </p>
-              </motion.div>
-              <motion.div
-                variants={lineVariants}
-                className='hover:bg-cyan-500/5 px-2 rounded'
-              >
-                <p>{'}'};</p>
-              </motion.div>
+              {[
+                {
+                  label: 'origin',
+                  value: "'San Cristóbal, VZLA'",
+                  color: 'text-yellow-300',
+                },
+                { label: 'team_size', value: '3', color: 'text-purple-400' },
+                {
+                  label: 'stack',
+                  value: "['Next.js', 'React', 'TS']",
+                  color: 'text-cyan-400',
+                },
+                {
+                  label: 'mission',
+                  value: "'Zero_Limits'",
+                  color: 'text-green-400',
+                },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  variants={lineVariants}
+                  className='hover:bg-cyan-500/5 px-2 rounded flex gap-2'
+                >
+                  <span className='text-zinc-500'>{i + 1}</span>
+                  <p>
+                    {item.label}:{' '}
+                    <span className={item.color}>{item.value}</span>,
+                  </p>
+                </motion.div>
+              ))}
+
               <motion.div
                 animate={{ opacity: [1, 0] }}
                 transition={{ repeat: Infinity, duration: 0.8 }}
-                className='w-2 h-5 bg-cyan-500 mt-2 ml-1 shadow-[0_0_10px_rgba(6,182,212,1)]'
+                className='w-2 h-5 bg-cyan-500 mt-2 ml-6 shadow-[0_0_10px_rgba(6,182,212,1)]'
               />
             </motion.div>
 
-            <div className='px-5 py-2 bg-white/2 border-t border-white/5 flex gap-4'>
-              <span className='text-[9px] text-slate-600 font-mono'>Ready</span>
-              <span className='text-[9px] text-cyan-500/50 font-mono'>
-                Connected
+            <div className='px-5 py-2 bg-white/2 border-t border-white/5 flex gap-4 justify-end'>
+              <span className='text-[9px] text-cyan-500/50 font-mono uppercase tracking-widest animate-pulse'>
+                Active_Node_Tachira
               </span>
             </div>
           </div>
