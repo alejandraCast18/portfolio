@@ -42,7 +42,7 @@ export const Footer = () => {
               <br className='md:hidden' />
               <span className='hidden md:inline'> • </span>
               Core Team{' '}
-              <span className='text-zinc-300 font-bold'>Cunaguaros</span>
+              <span className='text-zinc-300 font-bold'>CunaguarosDev</span>
             </p>
           </div>
 

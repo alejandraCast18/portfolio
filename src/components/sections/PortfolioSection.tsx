@@ -2,23 +2,25 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { FiGithub, FiExternalLink } from 'react-icons/fi'
 
 export const PortfolioSection = () => {
   const projects = [
     {
-      title: 'SAAS ARCHITECTURE',
-      tag: 'Next.js',
-      info: 'Infraestructura escalable',
+      id: 1,
+      video: 'videos/dorta.mp4',
+      github: 'https://github.com/tuusuario/cunaguaros',
+      link: 'https://tu-demo.com/cunaguaros',
     },
     {
-      title: 'HIGH-PERFORMANCE UI',
-      tag: 'React',
-      info: 'Interfaces de alta gama',
+      id: 2,
+      github: 'https://github.com/tuusuario/saas',
+      link: 'https://tu-demo.com/saas',
     },
     {
-      title: 'NEURAL & AI OPS',
-      tag: 'Python',
-      info: 'Automatización inteligente',
+      id: 3,
+      github: 'https://github.com/tuusuario/ui',
+      link: 'https://tu-demo.com/ui',
     },
   ]
 
@@ -28,7 +30,7 @@ export const PortfolioSection = () => {
   return (
     <section
       id='portfolio'
-      className='min-h-screen w-full flex flex-col justify-center py-24 px-6 max-w-7xl mx-auto overflow-hidden relative z-10'
+      className='min-h-screen w-full flex flex-col justify-center py-24 px-6 max-w-7xl mx-auto overflow-hidden relative z-10 bg-transparent'
     >
       <style jsx>{`
         @keyframes pulse-glow-port {
@@ -75,35 +77,52 @@ export const PortfolioSection = () => {
           </motion.h2>
         </div>
 
-        <div className='grid grid-cols-1 md:grid-cols-3 gap-8 mb-20'>
-          {projects.map((p, index) => (
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20'>
+          {projects.map((p) => (
             <motion.div
-              key={p.title}
+              key={p.id} // <-- ID único del 1 al 3 aplicado aquí
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: p.id * 0.1 }}
               viewport={{ once: true }}
-              className='group cursor-pointer'
+              className='group relative'
             >
-              <div className='aspect-video bg-zinc-900/50 border border-white/5 rounded-3xl flex items-center justify-center relative overflow-hidden mb-6 transition-all duration-500 group-hover:border-cyan-400/40 group-hover:shadow-[0_0_40px_rgba(0,242,255,0.15)]'>
-                <span className='text-[10px] font-mono text-zinc-700 group-hover:text-cyan-400 transition-colors duration-500'>
-                  [ INYECTANDO_DATOS ]
-                </span>
-                <div className='absolute inset-0 bg-cyan-400/0 group-hover:bg-cyan-400/5 transition-colors duration-500' />
-
-                <div className='absolute top-4 right-4 px-3 py-1 bg-black/50 backdrop-blur-md border border-white/10 rounded-full'>
-                  <span className='text-[8px] font-bold text-zinc-400 uppercase tracking-widest'>
-                    {p.tag}
+              <div className='aspect-video bg-zinc-900/50 border border-white/5 rounded-3xl flex items-center justify-center relative overflow-hidden mb-6 transition-all duration-500 group-hover:border-cyan-400/40 group-hover:shadow-[0_0_50px_rgba(0,242,255,0.2)]'>
+                {p.video ? (
+                  <video
+                    src={p.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className='absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity duration-700'
+                  />
+                ) : (
+                  <span className='text-[10px] font-mono text-zinc-800 group-hover:text-cyan-400/50 transition-colors duration-500'>
+                    [ SIN_PREVISUALIZACIÓN ]
                   </span>
-                </div>
+                )}
+                <div className='absolute inset-0 bg-linear-to-t from-black/95 via-black/10 to-transparent' />
               </div>
 
-              <h3 className='text-lg font-black text-white uppercase tracking-tight group-hover:text-cyan-400 transition-all duration-500 group-hover:translate-x-2'>
-                {p.title}
-              </h3>
-              <p className='text-zinc-500 text-xs mt-1 uppercase tracking-widest font-mono group-hover:text-zinc-300 transition-colors'>
-                {p.info}
-              </p>
+              <div className='flex items-center justify-end px-4'>
+                <div className='flex items-center gap-5 text-zinc-500'>
+                  <Link
+                    href={p.github}
+                    target='_blank'
+                    className='hover:text-white hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.6)] transition-all transform hover:scale-110'
+                  >
+                    <FiGithub size={20} />
+                  </Link>
+                  <Link
+                    href={p.link}
+                    target='_blank'
+                    className='hover:text-cyan-400 hover:drop-shadow-[0_0_10px_rgba(34,211,238,0.6)] transition-all transform hover:scale-110'
+                  >
+                    <FiExternalLink size={20} />
+                  </Link>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -111,7 +130,7 @@ export const PortfolioSection = () => {
         <div className='flex justify-center mt-8'>
           <Link
             href='/portfolio'
-            className='relative group overflow-hidden border border-cyan-400/50 px-8 md:px-12 py-4 md:py-5 rounded-full font-black uppercase text-[10px] md:text-[11px] tracking-[0.2em] text-white transition-all hover:border-cyan-400 hover:shadow-[0_0_30px_rgba(0,242,255,0.4)]'
+            className='relative group overflow-hidden border border-cyan-400/50 px-12 py-5 rounded-full font-black uppercase text-[11px] tracking-[0.2em] text-white transition-all hover:border-cyan-400 hover:shadow-[0_0_30px_rgba(0,242,255,0.4)]'
           >
             <span className='relative z-10'>Explorar Universo Completo</span>
             <div className='absolute inset-0 bg-cyan-400/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500' />

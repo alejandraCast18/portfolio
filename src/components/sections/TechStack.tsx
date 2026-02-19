@@ -7,9 +7,9 @@ import {
   SiFramer,
   SiTailwindcss,
   SiTypescript,
-  SiSupabase,
-  SiN8N,
+  SiFigma,
   SiDocker,
+  SiVercel,
 } from 'react-icons/si'
 
 export const TechStack = () => {
@@ -50,23 +50,24 @@ export const TechStack = () => {
       glow: 'group-hover:shadow-[0_0_30px_rgba(49,120,198,0.2)] group-hover:border-[#3178C6]/40',
     },
     {
-      name: 'Supabase',
+      name: 'Vercel',
       use: 'Backend escalable y bases de datos en tiempo real.',
-      icon: <SiSupabase />,
+      icon: <SiVercel />,
       color: 'group-hover:text-[#3ECF8E]',
       glow: 'group-hover:shadow-[0_0_30px_rgba(62,207,142,0.2)] group-hover:border-[#3ECF8E]/40',
     },
-    {
-      name: 'n8n',
-      use: 'Automatización inteligente de flujos de trabajo.',
-      icon: <SiN8N />,
-      color: 'group-hover:text-[#FF6D5A]',
-      glow: 'group-hover:shadow-[0_0_30px_rgba(255,109,90,0.2)] group-hover:border-[#FF6D5A]/40',
-    },
+
     {
       name: 'Docker',
       use: 'Contenerización para despliegues consistentes.',
       icon: <SiDocker />,
+      color: 'group-hover:text-[#2496ED]',
+      glow: 'group-hover:shadow-[0_0_30px_rgba(36,150,237,0.2)] group-hover:border-[#2496ED]/40',
+    },
+    {
+      name: 'Figma',
+      use: 'Diseño de interfaces de usuario con colaboración en tiempo real.',
+      icon: <SiFigma />,
       color: 'group-hover:text-[#2496ED]',
       glow: 'group-hover:shadow-[0_0_30px_rgba(36,150,237,0.2)] group-hover:border-[#2496ED]/40',
     },
