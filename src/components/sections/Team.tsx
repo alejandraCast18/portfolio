@@ -2,7 +2,8 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { SiGithub, SiLinkedin } from 'react-icons/si'
+import { SiGithub } from 'react-icons/si'
+import { FaLinkedinIn } from 'react-icons/fa6'
 
 const team = [
   {
@@ -145,7 +146,7 @@ export const Team = () => {
                   className='text-white hover:text-cyan-400 transition-colors transform hover:scale-110'
                   title='LinkedIn Profile'
                 >
-                  <SiLinkedin size={22} />
+                  <FaLinkedinIn size={22} />
                 </a>
               </div>
             </div>

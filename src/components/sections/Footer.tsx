@@ -1,7 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { SiInstagram, SiLinkedin, SiGithub } from 'react-icons/si'
+import { SiInstagram, SiGithub } from 'react-icons/si'
+import { FaLinkedinIn } from 'react-icons/fa6'
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -59,7 +60,7 @@ export const Footer = () => {
                 href='#'
                 className='text-zinc-400 hover:text-blue-500 transition-all transform hover:scale-110 opacity-30 cursor-not-allowed'
               >
-                <SiLinkedin size={20} />
+                <FaLinkedinIn size={20} />
               </Link>
               <Link
                 href='#'
